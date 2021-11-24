@@ -1,8 +1,8 @@
-import fdfd_tools
-import fdfd_tools
-import gds
-import goos
-import goos_sim
-import gridlock
-import invdes
-import material
+import spins.fdfd_tools
+import spins.fdfd_tools
+import spins.gds
+import spins.goos
+import spins.goos_sim
+import spins.gridlock
+import spins.invdes
+import spins.material
