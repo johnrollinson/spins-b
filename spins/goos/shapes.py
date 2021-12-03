@@ -342,8 +342,8 @@ class PixelatedContShape(Shape, goos.Function):
 
 def pixelated_cont_shape(
         initializer: Callable,
-        extents: np.ndarray,
-        pixel_size: np.ndarray,
+        extents: Union[np.ndarray, list],
+        pixel_size: Union[np.ndarray, list],
         pos: Union[np.ndarray, goos.Function],
         var_name: Optional[str] = None,
         **kwargs,

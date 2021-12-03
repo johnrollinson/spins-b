@@ -71,7 +71,7 @@ class Function(goos.ProblemGraphNode):
 class Constant(Function):
     node_type = "goos.function.constant"
 
-    def __init__(self, value: np.ndarray):
+    def __init__(self, value: Union[np.ndarray, list]):
         super().__init__()
         self._value = np.array(value)
 

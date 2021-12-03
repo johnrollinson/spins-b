@@ -74,6 +74,7 @@ def main(save_folder: str, visualize: bool = False) -> None:
     params = Options()
 
     with goos.OptimizationPlan(save_path=save_folder) as plan:
+        # Create shapes for optimization region
         substrate = goos.Cuboid(
             pos=goos.Constant([
                 params.coupler_len / 2, 0,
@@ -81,6 +82,7 @@ def main(save_folder: str, visualize: bool = False) -> None:
             ]),
             extents=goos.Constant([params.coupler_len + 10000, 1000, 10000]),
             material=goos.material.Material(index=params.eps_wg))
+
         waveguide = goos.Cuboid(
             pos=goos.Constant([-params.wg_len / 2, 0, 0]),
             extents=goos.Constant(
@@ -98,6 +100,7 @@ def main(save_folder: str, visualize: bool = False) -> None:
             ]),
             material=goos.material.Material(index=params.eps_wg))
 
+        # Create function to create random initial design
         def initializer(size):
             return np.random.random(size)
 
@@ -266,6 +269,7 @@ def visualize(folder: str, step: int):
     with open(os.path.join(folder, "step{0}.pkl".format(step)), "rb") as fp:
         data = pickle.load(fp)
 
+    stage = ""
     if data["action"] == "opt_cont":
         stage = "cont"
     elif data["action"] == "opt_disc":

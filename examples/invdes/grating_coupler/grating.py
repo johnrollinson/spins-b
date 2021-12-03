@@ -62,7 +62,9 @@ def run_opt(save_folder: str, grating_len: float, wg_width: float) -> None:
         box_thickness=2000,
         wg_thickness=wg_thickness,
         etch_frac=0.5,
-        wg_width=wg_width)
+        wg_width=wg_width,
+        visualize=True
+    )
     obj, monitors = create_objective(
         sim_space, wg_thickness=wg_thickness, grating_len=grating_len)
     trans_list = create_transformations(
